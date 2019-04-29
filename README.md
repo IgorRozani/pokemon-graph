@@ -2,7 +2,7 @@
 A Pokémon graph database, baseade in the [Bulbapedia](https://bulbapedia.bulbagarden.net).
 
 ## Database model
-![Diagem](diagram.png)
+![Diagem](/img/diagram.png)
 
 The database has two nodes and two relationships:
 1. Nodes:
