@@ -16,4 +16,4 @@ The database has four nodes labels and four relationships labels:
     - Is: the pokemon type relationship with Pokémon (Ex.: Pikachu is Eletric);
     - Evolve: relationship between the pokemon nodes, to represent the evolutions (Ex.: Charmander evolve to Charmeleon);
     - Has: the relationship between the forms and pokémons (Ex.: Deoxys has Attack Forme);
-    - MegaEvolve: to represent the mega evolution of pokemons (Ex.: Absol mega evolve to Mega Absol).
+    - Mega_Evolve: to represent the mega evolution of pokemons (Ex.: Absol mega evolve to Mega Absol).
