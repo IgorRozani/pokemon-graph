@@ -17,3 +17,55 @@ The database has four nodes labels and four relationships labels:
     - Evolve: relationship between the pokemon nodes, to represent the evolutions (Ex.: Charmander evolve to Charmeleon);
     - Has: the relationship between the forms and pokémons (Ex.: Deoxys has Attack Forme);
     - Mega_Evolve: to represent the mega evolution of pokemons (Ex.: Absol mega evolve to Mega Absol).
+
+## Examples
+
+### Quantity pokémons per type
+```
+MATCH (t:Type)-[:IS]-(p:Pokemon)
+WITH t, count(p) as qt
+RETURN t.name, qt
+ORDER BY qt DESC
+```
+
+### Quantity pokémons, mega evolução and forms per type
+```
+MATCH (t:Type)-[:IS]-(p)
+WITH t, count(p) as qt
+RETURN t.name, qt
+ORDER BY qt DESC
+```
+
+### List of pokémons with forms
+```
+MATCH (p:Pokemon)-[:HAS]-(f:Form)
+WITH p, count(f) as qt
+WHERE qt > 1
+RETURN p.name, qt
+ORDER BY qt DESC
+```
+
+### List of mega evolutions by pokémon
+```
+MATCH (p:Pokemon)-[:MEGA_EVOLVE]-(m:MegaEvolution)
+WITH p, m
+ORDER BY p.name
+WITH p, collect(m.name) as megaEvolutions
+RETURN p.name, megaEvolutions
+ORDER BY p.name
+```
+
+### List of pokemons with forms or mega evolution
+```
+MATCH (p:Pokemon)-[:MEGA_EVOLVE|:HAS]-(f)
+WITH p, collect(f.name) as formes
+RETURN p.name, formes
+ORDER BY p.name
+```
+
+### Pokémon evolutions and mega evolutions
+```
+MATCH (p1:Pokemon{name:'Charmander'})-[:EVOLVE|:MEGA_EVOLVE*]->(p2)
+WITH p1, collect(p2.name) as names
+RETURN DISTINCT p1.name, names
+```
