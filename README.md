@@ -71,4 +71,7 @@ RETURN DISTINCT p1.name, names
 ```
 
 ## Upcoming features
-Add pokemons from Sword/Shield
+- Add pokemons from Sword/Shield
+- Gigantamax 
+- Galar variants
+- Pokemon moves
