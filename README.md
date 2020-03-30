@@ -69,3 +69,6 @@ MATCH (p1:Pokemon{name:'Charmander'})-[:EVOLVE|:MEGA_EVOLVE*]->(p2)
 WITH p1, collect(p2.name) as names
 RETURN DISTINCT p1.name, names
 ```
+
+## Upcoming features
+Add pokemons from Sword/Shield
